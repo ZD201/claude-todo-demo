@@ -1,0 +1,16 @@
+# Render.com 部署配置
+services:
+  - type: web
+    name: claude-todo-demo
+    env: node
+    region: oregon # 或选择离你更近的地区
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: PORT
+        value: 3000
+      - key: NODE_ENV
+        value: production
+    # 健康检查
+    healthCheckPath: /
