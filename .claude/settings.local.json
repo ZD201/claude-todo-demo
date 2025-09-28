@@ -14,8 +14,15 @@
       "Bash(ls:*)",
       "Bash(echo $USERPROFILE)",
       "Read(//c/Users/Lenovo/claude-templates/**)",
-      "Bash(git init:*)",
-      "Bash(git add .)"
+      "Bash(git:*)",
+      "Bash(gh:*)",
+      "Bash(\"/c/Program Files/GitHub CLI/gh.exe\":*)",
+      "Bash(winget:*)",
+      "Bash(choco:*)",
+      "Bash(\"/c/Program Files/GitHub CLI/gh.exe\" repo create claude-todo-demo --public --source=. --remote=origin --description=\"Claude Code 演示项目 - 简单的待办事项应用，展示 AI 辅助开发的完整流程\" --push)",
+      "Bash(\"/c/Program Files/GitHub CLI/gh.exe\" auth status)",
+      "Bash(\"/c/Program Files/GitHub CLI/gh.exe\" auth login --web)",
+      "Bash(\"/c/Program Files/GitHub CLI/gh.exe\" auth login)"
     ],
     "deny": [],
     "ask": []
