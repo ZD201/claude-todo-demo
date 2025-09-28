@@ -1,0 +1,42 @@
+# 阿里云函数计算配置
+version: '3.0'
+edition: 3.0.0
+
+resources:
+  default:
+    component: fc3  # 函数计算3.0
+    actions:
+      pre-deploy:
+        - run: npm install
+          path: ./
+
+props:
+  region: cn-hangzhou  # 可选择就近地区：cn-beijing, cn-shanghai, cn-shenzhen
+  service:
+    name: claude-todo-demo
+    description: 'Claude Code 演示项目 - 待办事项应用'
+    internetAccess: true
+
+  function:
+    name: todo-app
+    description: '待办事项应用主函数'
+    runtime: nodejs18  # Node.js 18 运行时
+    codeUri: './'
+    handler: index.handler
+    memorySize: 128  # 内存 128MB（免费额度）
+    timeout: 60      # 超时 60 秒
+
+    # 环境变量
+    environmentVariables:
+      NODE_ENV: production
+
+  triggers:
+    - name: http-trigger
+      type: http
+      config:
+        authType: anonymous  # 允许匿名访问
+        methods:
+          - GET
+          - POST
+          - PUT
+          - DELETE
